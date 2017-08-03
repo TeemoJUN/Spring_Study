@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">   
+  <!--  
+     <bean name="student" class="cn.wzl.bean.Student">
+     	<property name="name" value="万在林"></property>
+     </bean>
+     
+    <bean name="hello" class="cn.wzl.bean.Hello">
+    	<property name="student" ref="student"></property>
+    	<constructor-arg index="0" ref="student"></constructor-arg>
+    </bean>
+   -->    
+  <!--  <bean name="factory" class="cn.wzl.bean.Factory" factory-method="sataticFactory"></bean> -->
+     
+     
+    <bean name="student" class="cn.wzl.bean.Student">
+     	<property name="name" value="万在林"></property>
+     </bean>
+     
+    <bean name="hello" class="cn.wzl.bean.Hello" autowire="byName"></bean>
+     
+     
+     
+     
+     
+     
+     <!-- 数组的创建 -->
+     <bean id="xuyaping" class="cn.wzl.bean.Student">
+     	<property name="name" value="许亚萍"></property>
+	    <property name="friends">
+			     <array>
+			     	<value>万在林</value>
+			     </array>
+	    </property>
+	    <property name="hobbies">
+		    <list>
+		    	<value>看书</value>
+		    	<value>斗地主</value>
+		    	<value>逛街</value>
+		    </list>
+	    </property>
+	    <property name="relation">
+	    	<map>
+	    		<entry key="朋友" value="小米"></entry>
+	    		<entry>
+	    		<key><value>弋阳</value></key>
+	    		<value>家乡</value>
+	    		</entry>
+	    	</map>
+	    </property>
+	    <property name="hair"><null></null></property>
+	    
+	    <property name="books">
+	    	<props>
+	    	<prop key="aa">aa</prop>
+	    	<prop key="bb">bb</prop>
+	    	</props>
+	    </property>
+     </bean>
+     
+     
+     
+     <bean id="person" class="cn.wzl.bean.Person" p:name="wzl" p:age="22">
+     </bean>
+     
+     
+     
+     
+     
+     
+     
+     
+       
+  </beans>
