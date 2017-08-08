@@ -1,4 +1,4 @@
-﻿# Spring_Study
+﻿﻿# Spring_Study
 
 ## 跟着视频学的spring，方便以后查阅
 
@@ -46,11 +46,14 @@
 2. 当一个 Bean被自动检测到时，会根据那个扫描器的BeanNameGenerator 策略生成它的 bean名称。默认情况下，对于包含name属性的@Component、@Repository、@Service和@Controller，会把name取值作为Bean的名字。如果这个注解不包含name值或是其他被自定义过滤器发现的组件，默认Bean名称会是小写开头的非限定类名。如果你不想使用默认bean命名策略，可以提供一个自定义的命名策略。首先实现BeanNameGenerator接口，确认包含了一个默认的无参数构造方法。然后在配置扫描器时提供一个全限定类名
 
 ----
+
 + spring 中的 autowire
+
+
 |模式|说明|
 |----|----|
-|no|不使用自动装配，必须通过ref元素指定依赖，默认设置。|
-|byName|根据属性名自动装配。此选项将检查容器并根据名字查找与   属性完全一致的bean，并将其与属性自动装配。 |
+| no | 不使用自动装配，必须通过ref元素指定依赖，默认设置 |
+| byName | 根据属性名自动装配。此选项将检查容器并根据名字查找与   属性完全一致的bean，并将其与属性自动装配。 |
 |byType| 如果容器中存在一个与指定属性类型相同的bean，那么将与该属性自动装配；如果存在多个该类型bean，那么抛出异常，并指出不能使用byType方式进行自动装配；如果没有找到相匹配的bean，则什么事都不发生，也可以通过设置dependency-check="objects"让Spring抛出异常。|
 |constructor| 与byType方式类似，不同之处在于它应用于构造器参数。如果容器中没有找到与构造器参数类型一致的bean，那么抛出异常。|
 |autodetect|通过bean类的自省机制（introspection）来决定是使用constructor还是byType方式进行自动装配。如果发现默认的构造器，那么将使用byType方式。|
