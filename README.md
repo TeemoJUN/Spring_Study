@@ -1,6 +1,11 @@
-﻿﻿# Spring_Study
+﻿# Spring_Study
 
 ## 跟着视频学的spring，方便以后查阅
+
+
+
+
+## SpringMVC
 
 + web.xml  DispatcherServlet的配置
 ```
@@ -46,6 +51,22 @@
 2. 当一个 Bean被自动检测到时，会根据那个扫描器的BeanNameGenerator 策略生成它的 bean名称。默认情况下，对于包含name属性的@Component、@Repository、@Service和@Controller，会把name取值作为Bean的名字。如果这个注解不包含name值或是其他被自定义过滤器发现的组件，默认Bean名称会是小写开头的非限定类名。如果你不想使用默认bean命名策略，可以提供一个自定义的命名策略。首先实现BeanNameGenerator接口，确认包含了一个默认的无参数构造方法。然后在配置扫描器时提供一个全限定类名
 
 ----
+
+```XML
+<!--  
+	default-servlet-handler 将在 SpringMVC 上下文中定义一个 DefaultServletHttpRequestHandler,
+	它会对进入 DispatcherServlet 的请求进行筛查, 如果发现是没有经过映射的请求, 就将该请求交由 WEB 应用服务器默认的 
+	Servlet 处理. 如果不是静态资源的请求，才由 DispatcherServlet 继续处理
+    一般 WEB 应用服务器默认的Servlet的名称都是default.若所使用的 WEB 服务器的默认 Servlet 名称不是 default，则需要通过 default-servlet-name属性显式指定(在TomCat的conf的web.xml文件里有一个默认的servlet)
+-->
+	<mvc:default-servlet-handler/>
+```
+```XML
+<mvc:default-servlet-handler/><!--失去@RequestMapping注解的访问-->
+<!--于是加上-->
+<mvc:annotation-driven></mvc:annotation-driven>	
+```
+
 
 + spring 中的 autowire
 
